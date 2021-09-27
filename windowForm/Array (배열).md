@@ -4,6 +4,12 @@
 
 
 
+![Array1](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/Array1.png?raw=true)
+![Array2](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/Array2.png?raw=true)
+
+
+
+
 
 
 ```c#
