@@ -13,6 +13,9 @@
 - 열거형을 이용해 Listbox를 활용해보기
 
 
+![Enum image](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/05enum.jpg?raw=true)
+
+
 
 ```c#
 using System;
