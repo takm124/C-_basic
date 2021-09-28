@@ -8,9 +8,7 @@
 
 
 
-
-
-
+![로또번호](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/%EB%A1%9C%EB%98%90%EB%B2%88%ED%98%B8.png?raw=true)
 
 
 
