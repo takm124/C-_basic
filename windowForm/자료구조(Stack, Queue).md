@@ -17,7 +17,7 @@
 
 
 
-![자료구조 스택 큐](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0(Stack,%20Queue).png?raw=true)
+![자료구조 스택 큐](https://user-images.githubusercontent.com/72305146/135373256-804fbf9b-c2f4-4376-bda3-2003b421e094.png)
 
 
 
