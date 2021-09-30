@@ -8,7 +8,7 @@
 
 
 
-![로또번호](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/%EB%A1%9C%EB%98%90%EB%B2%88%ED%98%B8.png?raw=true)
+![로또번호](https://user-images.githubusercontent.com/72305146/135373111-b7a72db6-bfcb-4c32-a2cc-2673e001de1a.png)
 
 
 
