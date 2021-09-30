@@ -4,8 +4,8 @@
 
 
 
-![Array1](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/Array1.png)
-![Array2](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/Array2.png)
+![Array1](https://user-images.githubusercontent.com/72305146/135372930-c691c200-37c1-4e59-9273-acf7c31315ad.png)
+![Array2](https://user-images.githubusercontent.com/72305146/135372931-0511c120-5f66-4d0a-961f-49e6c0ff1c19.png)
 
 
 
