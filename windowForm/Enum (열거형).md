@@ -13,7 +13,7 @@
 - 열거형을 이용해 Listbox를 활용해보기
 
 
-![Enum image](https://github.com/takm124/csharp_basic/blob/main/windowForm/images/05enum.jpg?raw=true)
+![Enum image](https://user-images.githubusercontent.com/72305146/135372976-173121c5-a5c5-4f15-92c9-06dc5cd7484e.jpg)
 
 
 
