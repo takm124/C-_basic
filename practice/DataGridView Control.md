@@ -36,8 +36,6 @@
 
 - ParentGroup은 Parent 객체들을 담기위한 그릇
 
-
-
 ### ParentGroup 클래스
 
 ```csharp
@@ -89,8 +87,6 @@ namespace DgvControl
   - Child 객체 생성, 정보 주입 및 Parent 클래스의 childList에 추가하기
   
   - dgvParent, dgvChild 화면에 데이터 출력하기
-  
-  
 
 ### Add 기능을 위한 전역변수 추가
 
@@ -101,8 +97,6 @@ ParentGroup _pg = new ParentGroup();
 // 현재 선택된 Parent의 Index
 int _prIdx;
 ```
-
-### 
 
 ### btnParentAdd_Click : Parent, Add 버튼 클릭 이벤트
 
@@ -130,8 +124,6 @@ private void btnParentAdd_Click(object sender, EventArgs e)
     fDisplyChild();
 }
 ```
-
-### 
 
 ### fDisplayParent : Parent 데이터 출력 함수
 
@@ -162,10 +154,6 @@ private void fDisplayParent()
 }
 ```
 
-### 
-
-
-
 ### fDisplayChild : Child 데이터 출력 함수
 
 ```csharp
@@ -195,10 +183,6 @@ private void fDisplyChild()
 }
 ```
 
-### 
-
-
-
 ### dgvParent_SelectionChanged : dgvParent Row 선택 변경 시 발생하는 이벤트
 
 ```csharp
@@ -222,10 +206,204 @@ private void dgvParent_SelectionChanged(object sender, EventArgs e)
   
   - 추후에 checkbox 담당 이벤트를 cellclick으로 발생시키기 위해
 
-
-
-
-
 ### 결과 (Parent의 Add 버튼 클릭 시)
 
 ![parent-add](https://user-images.githubusercontent.com/72305146/144365785-9a438d17-80bc-40a8-acb6-b2f6f47a05f9.png)
+
+## Child - Add 기능
+
+- Child의 Add 버튼 클릭 시 프로세스
+  
+  - 새로운 Child 객체 생성
+  
+  - 현재 선택된 Parent 객체 호출
+  
+  - Child객체 Parent 객체에 Add
+  
+  - 화면 재출력
+
+### btnChildAdd_Click
+
+```csharp
+private void btnChildAdd_Click(object sender, EventArgs e)
+{
+    if (dgvParent.RowCount < 1) return;
+
+    // 새로운 Child 객체 생성
+    Child ch = new Child();
+    ch.content = DateTime.Now.ToString("yyyyMMddHHmmss") + "에 추가로 생성된 Child";
+
+    // Parent 객체 호출
+    Parent pr = _pg.parent[_prIdx];
+
+    // Child Add 후 화면 재호출
+    pr.childList.Add(ch);
+    fDisplyChild();
+}yChild();
+}
+```
+
+### 결과
+
+![child-add result](https://user-images.githubusercontent.com/72305146/144775003-7e02537b-0380-4b2e-92dd-dfc75249ccc1.png)
+
+## Parent-Remove 기능
+
+- Parent의 Remove 버튼 클릭시 프로세스
+  
+  - 현재 Parent에서 체크박스 체크된 Parent 객체 확인
+  
+  - ParentGroup에서 삭제
+
+### DataGridView 체크박스 작업
+
+- CellClick 이벤트 발생시 Cell 위치값으로 checkbox 설정
+
+- 체크된 Parent의 개수를 count하기 위한 전역변수 _prChecked 추가_
+
+
+
+```csharp
+/// <summary>
+/// Parent 체크박스 관련 이벤트
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+private void dgvParent_CellClick(object sender, DataGridViewCellEventArgs e)
+{
+    if (e.ColumnIndex == 1 && e.RowIndex != -1)
+    {
+        if (dgvParent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == "TRUE")
+        {
+            dgvParent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+            Parent pr = dgvParent.Rows[e.RowIndex].Tag as Parent;
+            pr.isChecked = false;
+            _prChecked--;
+        }
+        else
+        {
+            dgvParent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+            Parent pr = dgvParent.Rows[e.RowIndex].Tag as Parent;
+            pr.isChecked = true;
+            _prChecked++;
+        }
+    }
+}
+```
+
+
+
+### btnParentRemove_Click
+
+```csharp
+/// <summary>
+/// 부모 객체 삭제
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+private void btnParentRemove_Click(object sender, EventArgs e)
+{
+    // 체크되어 있는 Parent가 있는지 확인
+    if (_prChecked < 1) return;
+
+    try
+    {
+        for (int i = _pg.parent.Count - 1; i >= 0; i--)
+        {
+            if (_pg.parent[i].isChecked)
+            {
+                _pg.parent.RemoveAt(i);
+            }
+        }
+
+        // 선택된 인덱스 초기화
+        _prIdx = 0;
+
+        // 화면 재출력
+        fDisplayParent();
+        fDisplyChild();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+}
+```
+
+ 
+
+
+
+## Child - Remove 기능
+
+- 골자는 Parent의 Remove와 동일하다.
+
+
+
+### 체크박스 작업
+
+- Parent때와 마찬가지로 체크박스 개수를 count하기 위한 전역변수 _chChecked 생성_
+
+```csharp
+/// <summary>
+/// Child 체크박스 관련 이벤트
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+private void dgvChild_CellClick(object sender, DataGridViewCellEventArgs e)
+{
+    if (e.ColumnIndex == 1 && e.RowIndex != -1)
+    {
+        if (dgvChild.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == "TRUE")
+        {
+            dgvChild.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+            Child ch = dgvChild.Rows[e.RowIndex].Tag as Child;
+            ch.isChecked = false;
+            _chChecked--;
+        }
+        else
+        {
+            dgvChild.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+            Child ch = dgvChild.Rows[e.RowIndex].Tag as Child;
+            ch.isChecked = true;
+            _chChecked++;
+        }
+    }
+}
+```
+
+
+
+### btnChildRemove_Click
+
+```csharp
+/// <summary>
+/// 자식 객체 삭제
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+private void btnChildRemove_Click(object sender, EventArgs e)
+{
+    // 체크되어 있는 Child가 있는지 확인
+    if (_chChecked < 1) return;
+
+    try
+    {
+        for (int i = _pg.parent[_prIdx].childList.Count - 1; i >= 0; i--)
+        {
+            if (_pg.parent[_prIdx].childList[i].isChecked)
+            {
+                _pg.parent[_prIdx].childList.RemoveAt(i);
+            }
+        }
+
+        // 화면 재출력
+        fDisplayParent();
+        fDisplyChild();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+}
+```
