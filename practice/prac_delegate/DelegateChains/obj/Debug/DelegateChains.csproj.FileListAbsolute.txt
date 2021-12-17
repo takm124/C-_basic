@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\bin\Debug\DelegateChains.exe.config
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\bin\Debug\DelegateChains.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\bin\Debug\DelegateChains.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\obj\Debug\DelegateChains.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\obj\Debug\DelegateChains.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\DelegateChains\obj\Debug\DelegateChains.pdb

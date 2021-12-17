@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\bin\Debug\prac_delegate.exe.config
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\bin\Debug\prac_delegate.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\bin\Debug\prac_delegate.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\obj\Debug\UsingCallBack.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\obj\Debug\prac_delegate.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\prac_delegate\prac_delegate\obj\Debug\prac_delegate.pdb
